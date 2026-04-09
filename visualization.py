@@ -1,6 +1,6 @@
 import json
 
-# Twoje dane FEN
+# Twoje dane FEN (zachowane bez zmian)
 fen_list = [
     "8/p4pk1/1p4p1/4p3/4P3/8/PP4PP/6K1 w - - 0 29",
     "8/p4pk1/1p4p1/4p3/4P3/8/PP3KPP/8 b - - 1 29",
@@ -145,6 +145,7 @@ fen_list = [
     "8/8/5P2/6Pp/7P/4k1K1/8/8 b - - 0 108"
 ]
 
+
 def parse_fen(fen):
     board_part = fen.split(' ')[0]
     rows = board_part.split('/')
@@ -159,9 +160,12 @@ def parse_fen(fen):
         parsed_rows.append(parsed_row)
     return parsed_rows
 
-piece_map = {
-    'k': '♚', 'p': '♟',
-    'K': '♔', 'P': '♙'
+# Mapowanie figur na czytelne obrazy (Wikipedia/Wikimedia dla stabilności)
+piece_img = {
+    'k': 'https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg',
+    'p': 'https://upload.wikimedia.org/wikipedia/commons/c/c7/Chess_pdt45.svg',
+    'K': 'https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg',
+    'P': 'https://upload.wikimedia.org/wikipedia/commons/4/45/Chess_plt45.svg'
 }
 
 html_template = """
@@ -171,26 +175,90 @@ html_template = """
     <meta charset="UTF-8">
     <title>Wizualizacja Koncówek Szachowych</title>
     <style>
-        body {{ font-family: sans-serif; background: #2c3e50; color: white; padding: 20px; }}
-        .grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }}
-        .board-container {{ background: #34495e; padding: 15px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }}
-        .board {{ display: grid; grid-template-columns: repeat(8, 30px); grid-template-rows: repeat(8, 30px); border: 2px solid #333; margin: 0 auto; }}
-        .cell {{ width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-size: 24px; }}
-        .white {{ background-color: #ecf0f1; }}
-        .black {{ background-color: #95a5a6; }}
-        .fen-text {{ font-size: 10px; color: #bdc3c7; word-break: break-all; margin-top: 10px; display: block; text-align: center; }}
-        .meta {{ margin-top: 5px; font-weight: bold; text-align: center; color: #f1c40f; }}
-        h1 {{ text-align: center; }}
+        body {{ 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #1a2634; 
+            color: white; 
+            padding: 40px;
+            margin: 0;
+        }}
+        h1 {{ text-align: center; color: #f1c40f; margin-bottom: 40px; }}
+        
+        .grid {{ 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 40px; 
+            justify-items: center;
+        }}
+        
+        .board-container {{ 
+            background: #263547; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 280px;
+            transition: transform 0.2s;
+        }}
+        .board-container:hover {{ transform: translateY(-5px); }}
+
+        .meta {{ 
+            margin-bottom: 15px; 
+            font-weight: bold; 
+            text-align: center; 
+            font-size: 1.1em;
+            color: #f1c40f; 
+        }}
+
+        .board {{ 
+            display: grid; 
+            grid-template-columns: repeat(8, 35px); 
+            grid-template-rows: repeat(8, 35px); 
+            border: 2px solid #111; 
+            margin: 0 auto;
+            user-select: none;
+        }}
+
+        .cell {{ 
+            width: 35px; 
+            height: 35px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+        }}
+        
+        /* Kolory pól wzorowane na zdjęciu */
+        .white {{ background-color: #ebecd0; }}
+        .black {{ background-color: #779556; }} /* Klasyczny zielony Chess.com */
+        /* Alternatywny fioletowy ze zdjęcia: .black {{ background-color: #7d67b8; }} */
+
+        .cell img {{
+            width: 90%;
+            height: 90%;
+        }}
+
+        .fen-text {{ 
+            font-family: monospace;
+            font-size: 11px; 
+            color: #8b9eb7; 
+            background: #1e2a3a;
+            padding: 8px;
+            border-radius: 4px;
+            margin-top: 15px; 
+            display: block; 
+            text-align: center;
+            overflow-wrap: break-word;
+        }}
     </style>
 </head>
 <body>
-    <h1>Moje Końcówki Pionowe (Chess.com)</h1>
+    <h1>Analiza Końcówek Szachowych</h1>
     <div class="grid">
         {content}
     </div>
 </body>
 </html>
 """
+
 board_html = ""
 for i, fen in enumerate(fen_list):
     parsed = parse_fen(fen)
@@ -199,18 +267,19 @@ for i, fen in enumerate(fen_list):
     for r in range(8):
         for c in range(8):
             color_class = "white" if (r + c) % 2 == 0 else "black"
-            piece = piece_map.get(parsed[r][c], "")
-            cells += f'<div class="cell {color_class}">{piece}</div>'
+            piece_key = parsed[r][c]
+            piece_html = f'<img src="{piece_img[piece_key]}">' if piece_key in piece_img else ""
+            cells += f'<div class="cell {color_class}">{piece_html}</div>'
     
     board_html += f"""
     <div class="board-container">
         <div class="meta">Pozycja {i+1} ({turn})</div>
         <div class="board">{cells}</div>
-        <code class="fen-text">{fen}</code>
+        <div class="fen-text">{fen}</div>
     </div>
     """
 
 with open("szachowe_koncowki.html", "w", encoding="utf-8") as f:
     f.write(html_template.format(content=board_html))
 
-print("Gotowe! Otwórz plik szachowe_koncowki.html w przeglądarce.")
+print("Zaktualizowano! Otwórz plik szachowe_koncowki.html.")
