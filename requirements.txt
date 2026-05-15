@@ -1,0 +1,27 @@
+# RL
+stable-baselines3==2.3.2
+sb3-contrib==2.3.0
+
+# Deep Learning
+torch>=2.0.0
+
+# Environment
+gymnasium==0.29.1
+
+# Chess
+python-chess==1.999
+
+# Data / utils
+numpy>=1.24
+requests>=2.31
+
+# opcjonalne (debug / wizualizacja)
+matplotlib>=3.7
+tqdm>=4.66
+
+# UI
+pillow>=10.0
+
+# SVG rendering
+cairosvg>=2.7
+

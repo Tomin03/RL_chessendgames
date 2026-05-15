@@ -1,0 +1,16 @@
+
+📊 Wyniki ewaluacji (ppo_chess_model):
+Liczba gier: 50
+Wygrane: 1
+Porażki: 0
+Remisy: 3678
+Winrate: 0.02
+------------------------------
+
+📊 Wyniki ewaluacji (ppo_chess_model):
+Liczba gier: 50
+Wygrane: 1
+Porażki: 0
+Remisy: 49
+Winrate: 0.02
+------------------------------
