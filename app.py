@@ -163,7 +163,7 @@ def draw_board():
 
     canvas.delete("all")
 
-    colors = ["#F0D9B5", "#B58863"]
+    colors = ["#f0d9b5", "#b58863"]
 
     for rank in range(8):
 
