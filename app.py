@@ -21,6 +21,8 @@ SQUARE_SIZE = BOARD_SIZE // 8
 HUMAN_COLOR = chess.WHITE
 AI_COLOR = chess.BLACK
 
+ANIMATION_DELAY = 15
+
 # =====================================================
 # LOAD MODEL
 # =====================================================
@@ -78,44 +80,6 @@ def board_to_obs(board):
     return np.concatenate([board_array, turn_plane], axis=2)
 
 # =====================================================
-# AI MOVE
-# =====================================================
-
-def ai_move():
-
-    global board
-
-    if board.turn != AI_COLOR:
-        return
-
-    legal_moves = list(board.legal_moves)
-
-    if len(legal_moves) == 0:
-        return
-
-    obs = board_to_obs(board)
-
-    action_masks = np.zeros(218, dtype=np.int8)
-
-    for i in range(len(legal_moves)):
-        action_masks[i] = 1
-
-    action, _ = model.predict(
-        obs,
-        action_masks=action_masks,
-        deterministic=True
-    )
-
-    if action >= len(legal_moves):
-        action = random.randint(0, len(legal_moves) - 1)
-
-    move = legal_moves[action]
-
-    print("AI move:", move)
-
-    board.push(move)
-
-# =====================================================
 # TKINTER
 # =====================================================
 
@@ -126,6 +90,9 @@ canvas = tk.Canvas(root, width=BOARD_SIZE, height=BOARD_SIZE)
 canvas.pack()
 
 selected_square = None
+legal_targets = []
+
+last_move = None
 
 # =====================================================
 # LOAD PIECES
@@ -159,7 +126,7 @@ for piece_symbol, filename in piece_names.items():
 # DRAW BOARD
 # =====================================================
 
-def draw_board():
+def draw_board(animated_piece=None, x=None, y=None):
 
     canvas.delete("all")
 
@@ -175,19 +142,51 @@ def draw_board():
             x2 = x1 + SQUARE_SIZE
             y2 = y1 + SQUARE_SIZE
 
+            square = chess.square(file, rank)
+
             color = colors[(rank + file) % 2]
 
+            # =================================================
+            # LAST MOVE HIGHLIGHT
+            # =================================================
+
+            if last_move:
+
+                if square == last_move.from_square or square == last_move.to_square:
+                    color = "#f7ec59"
+
             canvas.create_rectangle(
-                x1, y1, x2, y2,
+                x1,
+                y1,
+                x2,
+                y2,
                 fill=color,
                 outline=color
             )
 
-            square = chess.square(file, rank)
+            # =================================================
+            # SELECTED SQUARE
+            # =================================================
+
+            if selected_square == square:
+
+                canvas.create_rectangle(
+                    x1,
+                    y1,
+                    x2,
+                    y2,
+                    fill="#74b9ff",
+                    stipple="gray50",
+                    outline=""
+                )
 
             piece = board.piece_at(square)
 
             if piece:
+
+                # don't draw moving piece during animation
+                if animated_piece and square == animated_piece["from"]:
+                    continue
 
                 canvas.create_image(
                     x1,
@@ -196,6 +195,166 @@ def draw_board():
                     image=piece_images[piece.symbol()]
                 )
 
+    # =================================================
+    # LEGAL MOVE DOTS
+    # =================================================
+
+    for square in legal_targets:
+
+        file = chess.square_file(square)
+        rank = chess.square_rank(square)
+
+        cx = file * SQUARE_SIZE + SQUARE_SIZE // 2
+        cy = (7 - rank) * SQUARE_SIZE + SQUARE_SIZE // 2
+
+        canvas.create_oval(
+            cx - 10,
+            cy - 10,
+            cx + 10,
+            cy + 10,
+            fill="#2ecc71",
+            outline=""
+        )
+
+    # =================================================
+    # ANIMATED PIECE
+    # =================================================
+
+    if animated_piece:
+
+        canvas.create_image(
+            x,
+            y,
+            anchor=tk.NW,
+            image=piece_images[animated_piece["symbol"]]
+        )
+
+# =====================================================
+# ANIMATE MOVE
+# =====================================================
+
+def animate_move(move):
+
+    moving_piece = board.piece_at(move.from_square)
+
+    if not moving_piece:
+        return
+
+    start_file = chess.square_file(move.from_square)
+    start_rank = chess.square_rank(move.from_square)
+
+    end_file = chess.square_file(move.to_square)
+    end_rank = chess.square_rank(move.to_square)
+
+    start_x = start_file * SQUARE_SIZE
+    start_y = (7 - start_rank) * SQUARE_SIZE
+
+    end_x = end_file * SQUARE_SIZE
+    end_y = (7 - end_rank) * SQUARE_SIZE
+
+    steps = 20
+
+    for i in range(steps):
+
+        t = (i + 1) / steps
+
+        current_x = start_x + (end_x - start_x) * t
+        current_y = start_y + (end_y - start_y) * t
+
+        draw_board(
+            animated_piece={
+                "from": move.from_square,
+                "symbol": moving_piece.symbol()
+            },
+            x=current_x,
+            y=current_y
+        )
+
+        root.update()
+        root.after(ANIMATION_DELAY)
+
+# =====================================================
+# PROMOTION WINDOW
+# =====================================================
+
+def choose_promotion():
+
+    result = {"piece": chess.QUEEN}
+
+    window = tk.Toplevel(root)
+    window.title("Choose Promotion")
+    window.geometry("420x120")
+    window.grab_set()
+
+    pieces = [
+        ("♕ Queen", chess.QUEEN),
+        ("♖ Rook", chess.ROOK),
+        ("♗ Bishop", chess.BISHOP),
+        ("♘ Knight", chess.KNIGHT),
+    ]
+
+    def select(piece_type):
+
+        result["piece"] = piece_type
+        window.destroy()
+
+    for i, (text, piece_type) in enumerate(pieces):
+
+        button = tk.Button(
+            window,
+            text=text,
+            font=("Arial", 16),
+            width=8,
+            command=lambda p=piece_type: select(p)
+        )
+
+        button.grid(row=0, column=i, padx=5, pady=25)
+
+    root.wait_window(window)
+
+    return result["piece"]
+
+# =====================================================
+# AI MOVE
+# =====================================================
+
+def ai_move():
+
+    global board
+    global last_move
+
+    if board.turn != AI_COLOR:
+        return
+
+    legal_moves = list(board.legal_moves)
+
+    if len(legal_moves) == 0:
+        return
+
+    obs = board_to_obs(board)
+
+    action_masks = np.zeros(218, dtype=np.int8)
+
+    for i in range(len(legal_moves)):
+        action_masks[i] = 1
+
+    action, _ = model.predict(
+        obs,
+        action_masks=action_masks,
+        deterministic=True
+    )
+
+    if action >= len(legal_moves):
+        action = random.randint(0, len(legal_moves) - 1)
+
+    move = legal_moves[action]
+
+    animate_move(move)
+
+    board.push(move)
+
+    last_move = move
+
 # =====================================================
 # CLICK HANDLER
 # =====================================================
@@ -203,7 +362,8 @@ def draw_board():
 def on_click(event):
 
     global selected_square
-    global board
+    global legal_targets
+    global last_move
 
     if board.is_game_over():
         return
@@ -216,36 +376,86 @@ def on_click(event):
 
     clicked_square = chess.square(file, rank)
 
-    piece = board.piece_at(clicked_square)
+    clicked_piece = board.piece_at(clicked_square)
 
-    # SELECT PIECE
+    # =================================================
+    # NO PIECE SELECTED
+    # =================================================
+
     if selected_square is None:
 
-        if piece and piece.color == HUMAN_COLOR:
+        if clicked_piece and clicked_piece.color == HUMAN_COLOR:
+
             selected_square = clicked_square
+
+            legal_targets = []
+
+            for move in board.legal_moves:
+
+                if move.from_square == selected_square:
+                    legal_targets.append(move.to_square)
+
+            draw_board()
 
         return
 
+    # =================================================
+    # CLICKED ANOTHER OWN PIECE
+    # =================================================
+
+    if clicked_piece and clicked_piece.color == HUMAN_COLOR:
+
+        selected_square = clicked_square
+
+        legal_targets = []
+
+        for move in board.legal_moves:
+
+            if move.from_square == selected_square:
+                legal_targets.append(move.to_square)
+
+        draw_board()
+
+        return
+
+    # =================================================
     # TRY MOVE
+    # =================================================
+
     move = chess.Move(selected_square, clicked_square)
 
     moving_piece = board.piece_at(selected_square)
 
-    # promotion
+    # =================================================
+    # PROMOTION
+    # =================================================
+
     if moving_piece and moving_piece.piece_type == chess.PAWN:
 
         if chess.square_rank(clicked_square) == 7:
 
+            promotion_piece = choose_promotion()
+
             move = chess.Move(
                 selected_square,
                 clicked_square,
-                promotion=chess.QUEEN
+                promotion=promotion_piece
             )
 
-    # legal move
     if move in board.legal_moves:
 
+        # hide dots immediately
+        legal_targets = []
+        selected_square = None
+
+        draw_board()
+        root.update()
+
+        animate_move(move)
+
         board.push(move)
+
+        last_move = move
 
         draw_board()
         root.update()
@@ -253,15 +463,25 @@ def on_click(event):
         # AI move
         if not board.is_game_over():
 
-            root.after(300)
+            root.after(200)
 
             ai_move()
 
             draw_board()
 
-    selected_square = None
+    # =================================================
+    # CLEAR SELECTION
+    # =================================================
 
+    selected_square = None
+    legal_targets = []
+
+    draw_board()
+
+    # =================================================
     # GAME OVER
+    # =================================================
+
     if board.is_game_over():
 
         result = board.result()
@@ -282,6 +502,13 @@ def on_click(event):
 def new_game():
 
     global board
+    global selected_square
+    global legal_targets
+    global last_move
+
+    selected_square = None
+    legal_targets = []
+    last_move = None
 
     while True:
 
@@ -296,6 +523,25 @@ def new_game():
     draw_board()
 
 # =====================================================
+# ANIMATION SPEED
+# =====================================================
+
+def set_slow():
+
+    global ANIMATION_DELAY
+    ANIMATION_DELAY = 35
+
+def set_medium():
+
+    global ANIMATION_DELAY
+    ANIMATION_DELAY = 15
+
+def set_fast():
+
+    global ANIMATION_DELAY
+    ANIMATION_DELAY = 5
+
+# =====================================================
 # BUTTONS
 # =====================================================
 
@@ -306,10 +552,37 @@ new_game_button = tk.Button(
     button_frame,
     text="🎲 New Position",
     command=new_game,
-    font=("Arial", 14)
+    font=("Arial", 12)
 )
 
-new_game_button.pack()
+new_game_button.grid(row=0, column=0, padx=5)
+
+slow_button = tk.Button(
+    button_frame,
+    text="🐢 Slow",
+    command=set_slow,
+    font=("Arial", 12)
+)
+
+slow_button.grid(row=0, column=1, padx=5)
+
+medium_button = tk.Button(
+    button_frame,
+    text="⚡ Medium",
+    command=set_medium,
+    font=("Arial", 12)
+)
+
+medium_button.grid(row=0, column=2, padx=5)
+
+fast_button = tk.Button(
+    button_frame,
+    text="🚀 Fast",
+    command=set_fast,
+    font=("Arial", 12)
+)
+
+fast_button.grid(row=0, column=3, padx=5)
 
 # =====================================================
 # START
