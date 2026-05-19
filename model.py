@@ -4,7 +4,7 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 import torch
 import numpy as np
 import argparse
-from env_ppo import ChessEnv
+from backend.env_ppo import ChessEnv
 
 def make_env():
     return ChessEnv()
