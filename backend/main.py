@@ -8,6 +8,8 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sb3_contrib import MaskablePPO
 
+from backend.env_ppo import ACTION_SPACE_SIZE, action_index_to_move, move_to_action_index
+
 
 BASE_DIR = Path(__file__).resolve().parent
 MODEL_PATH = BASE_DIR / "ppo_chess_model.zip"
@@ -30,12 +32,8 @@ app.add_middleware(
 
 
 def board_to_obs(board: chess.Board):
-    temp_board = board.copy()
-    if not temp_board.turn:
-        temp_board = temp_board.mirror()
-
     board_array = np.zeros((8, 8, 12), dtype=np.float32)
-    for square, piece in temp_board.piece_map().items():
+    for square, piece in board.piece_map().items():
         row = square // 8
         col = square % 8
         piece_type = piece.piece_type - 1
@@ -43,7 +41,8 @@ def board_to_obs(board: chess.Board):
         channel = piece_type + color_offset
         board_array[row][col][channel] = 1
 
-    turn_plane = np.ones((8, 8, 1), dtype=np.float32)
+    turn_value = 1.0 if board.turn == chess.WHITE else 0.0
+    turn_plane = np.full((8, 8, 1), turn_value, dtype=np.float32)
     return np.concatenate([board_array, turn_plane], axis=2)
 
 
@@ -117,12 +116,18 @@ def ai_move(data: dict):
             "result": board.result(),
         }
 
-    legal_moves = list(board.legal_moves)
     action_count = model.action_space.n
     action_masks = np.zeros(action_count, dtype=np.int8)
+    legal_moves = list(board.legal_moves)
 
-    for action_idx in range(min(len(legal_moves), action_count)):
-        action_masks[action_idx] = 1
+    if action_count == ACTION_SPACE_SIZE:
+        for legal_move in legal_moves:
+            action_idx = move_to_action_index(legal_move)
+            if action_idx is not None:
+                action_masks[action_idx] = 1
+    else:
+        for action_idx in range(min(len(legal_moves), action_count)):
+            action_masks[action_idx] = 1
 
     action, _ = model.predict(
         board_to_obs(board),
@@ -131,10 +136,14 @@ def ai_move(data: dict):
     )
 
     action = int(action)
-    if action >= len(legal_moves):
-        action = random.randint(0, len(legal_moves) - 1)
-
-    move = legal_moves[action]
+    if action_count == ACTION_SPACE_SIZE:
+        move = action_index_to_move(action)
+        if move not in legal_moves:
+            move = random.choice(legal_moves)
+    else:
+        if action >= len(legal_moves):
+            action = random.randint(0, len(legal_moves) - 1)
+        move = legal_moves[action]
 
     board.push(move)
     return {

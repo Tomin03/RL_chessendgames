@@ -8,13 +8,13 @@ const API_URL = "http://127.0.0.1:8000";
 
 const animationOptions = [
   { label: "Wolny", value: 900 },
-  { label: "Sredni", value: 300 },
+  { label: "Średni", value: 300 },
   { label: "Szybki", value: 80 },
 ];
 
 const promotionOptions = [
   { label: "Hetman", value: "q", Icon: FaChessQueen },
-  { label: "Wieza", value: "r", Icon: FaChessRook },
+  { label: "Wieża", value: "r", Icon: FaChessRook },
   { label: "Goniec", value: "b", Icon: FaChessBishop },
   { label: "Skoczek", value: "n", Icon: FaChessKnight },
 ];
@@ -430,11 +430,11 @@ function App() {
     <main className="app-shell">
       <h1
         className="app-title"
-          style={{fontWeight: "normal",textAlign: "center",marginBottom: "16px",fontSize: "32px"
+          style={{fontWeight: "bold",textAlign: "center",marginBottom: "16px",fontSize: "32px"
   }}
 >
   KOŃCÓWKI SZACHOWE <br />
-  Z AGENTEM RL
+  PIONOWE Z AGENTEM RL
         </h1>
       <section className="game-layout">
         <aside className="side-panel">
@@ -444,7 +444,7 @@ function App() {
           </button>
 
           <div className="controls">
-            <label htmlFor="animation-speed">Tryb predkosci animacji</label>
+            <label htmlFor="animation-speed">Tryb prędkości animacji</label>
             <select
               id="animation-speed"
               value={animationSpeed}
@@ -470,7 +470,7 @@ function App() {
 
         <aside className="history-panel" aria-label="Historia ruchow">
           <div className="move-history-card">
-            <h2>HISTORIA RUCHOW</h2>
+            <h2>HISTORIA RUCHÓW</h2>
             {formattedMoveHistory.length > 0 ? (
               <ol className="move-history-list">
                 {formattedMoveHistory.map((row) => (
