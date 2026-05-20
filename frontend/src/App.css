@@ -2,17 +2,34 @@
   position: relative;
   min-height: 100vh;
   width: 100vw;
-  background: #f3f4f6;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(191, 219, 254, 0.58), transparent 28%),
+    radial-gradient(circle at 82% 24%, rgba(203, 213, 225, 0.42), transparent 30%),
+    linear-gradient(135deg, #f1f5f9 0%, #fbfcff 48%, #e9eef6 100%);
   color: #16202a;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 32px;
   box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.app-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 52% 62%, rgba(255, 255, 255, 0.82), transparent 34%),
+    radial-gradient(circle at 10% 84%, rgba(99, 102, 241, 0.08), transparent 24%);
+  filter: blur(18px);
+  opacity: 0.86;
 }
 
 .app-title {
   position: absolute;
+  z-index: 1;
   top: 46px;
   left: 50px;
   margin: 0;
@@ -24,6 +41,8 @@
 }
 
 .game-layout {
+  position: relative;
+  z-index: 1;
   width: min(1240px, 100%);
   display: grid;
   grid-template-columns: 286px minmax(320px, 720px) 210px;
@@ -44,7 +63,7 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  border: 1px solid #93efbc;
+  border: 1px solid #14a870;
   border-radius: 7px;
   background: #d9fae6;
   color: #07856f;
@@ -177,7 +196,7 @@
   padding: 0 2px;
   list-style: none;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1.25;
 }
 
@@ -226,9 +245,8 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  border: 0;
+  border: 1px solid currentColor;
   border-radius: 6px;
-  color: #ffffff;
   padding: 13px 16px;
   font-size: 13px;
   font-weight: 800;
@@ -249,23 +267,25 @@
 }
 
 .undo-button {
-  background: #e91658;
-  box-shadow: 0 12px 24px rgba(233, 22, 88, 0.22);
+  background: #ffd9e4;
+  color: #c9144d;
+  box-shadow: 0 10px 20px rgba(233, 22, 88, 0.14);
 }
 
 .undo-button:hover {
-  background: #d90f4e;
-  box-shadow: 0 15px 28px rgba(233, 22, 88, 0.26);
+  background: #ffc8d8;
+  box-shadow: 0 13px 24px rgba(233, 22, 88, 0.18);
 }
 
 .hint-button {
-  background: #edbd12;
-  box-shadow: 0 12px 24px rgba(237, 189, 18, 0.2);
+  background: #fff1b8;
+  color: #b27d00;
+  box-shadow: 0 10px 20px rgba(237, 189, 18, 0.14);
 }
 
 .hint-button:hover {
-  background: #dcae0d;
-  box-shadow: 0 15px 28px rgba(237, 189, 18, 0.25);
+  background: #ffe895;
+  box-shadow: 0 13px 24px rgba(237, 189, 18, 0.18);
 }
 
 .promotion-overlay {
