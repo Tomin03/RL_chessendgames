@@ -428,6 +428,14 @@ function App() {
 
   return (
     <main className="app-shell">
+      <h1
+        className="app-title"
+          style={{fontWeight: "normal",textAlign: "center",marginBottom: "16px",fontSize: "32px"
+  }}
+>
+  KOŃCÓWKI SZACHOWE <br />
+  Z AGENTEM RL
+        </h1>
       <section className="game-layout">
         <aside className="side-panel">
           <button className="new-position-button" onClick={loadRandomPosition} disabled={isLoading}>
