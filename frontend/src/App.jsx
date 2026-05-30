@@ -443,7 +443,7 @@ function App() {
             <FaPlus aria-hidden="true" />
           </button>
 
-          <div className="controls">
+          <div className="controlsA">
             <label htmlFor="animation-speed">Tryb prędkości animacji</label>
             <select
               id="animation-speed"
