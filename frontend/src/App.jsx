@@ -1,20 +1,29 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+﻿import { useEffect, useMemo, useRef, useState } from "react";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
-import { FaChessBishop, FaChessKnight, FaChessQueen, FaChessRook, FaMagic, FaPlus, FaUndo } from "react-icons/fa";
+import {
+  FaArrowLeft,
+  FaChessBishop,
+  FaChessKnight,
+  FaChessQueen,
+  FaChessRook,
+  FaLightbulb,
+  FaRedo,
+  FaUndo,
+} from "react-icons/fa";
 import "./App.css";
 
 const API_URL = "http://127.0.0.1:8000";
 
 const animationOptions = [
   { label: "Wolny", value: 900 },
-  { label: "Średni", value: 300 },
+  { label: "Sredni", value: 300 },
   { label: "Szybki", value: 80 },
 ];
 
 const promotionOptions = [
   { label: "Hetman", value: "q", Icon: FaChessQueen },
-  { label: "Wieża", value: "r", Icon: FaChessRook },
+  { label: "Wieza", value: "r", Icon: FaChessRook },
   { label: "Goniec", value: "b", Icon: FaChessBishop },
   { label: "Skoczek", value: "n", Icon: FaChessKnight },
 ];
@@ -70,14 +79,22 @@ function isPromotionMove(currentGame, sourceSquare, targetSquare) {
 }
 
 function getBoardWidth() {
-  if (typeof window === "undefined") return 680;
-  if (window.innerWidth < 760) {
-    return Math.max(300, Math.min(window.innerWidth - 32, 560));
+  if (typeof window === "undefined") return 640;
+  if (window.innerWidth < 760) return Math.max(300, Math.min(window.innerWidth - 32, 540));
+  return Math.max(420, Math.min(window.innerWidth - 520, 680));
+}
+
+function rankingLabel(move) {
+  if (typeof move.probability === "number") {
+    return `${Math.round(move.probability * 1000) / 10}%`;
   }
-  return Math.max(420, Math.min(window.innerWidth - 420, 720));
+  return move.score.toFixed(2);
 }
 
 function App() {
+  const [positions, setPositions] = useState([]);
+  const [selectedPositionId, setSelectedPositionId] = useState(null);
+  const [view, setView] = useState("picker");
   const [game, setGame] = useState(new Chess());
   const [playerColor, setPlayerColor] = useState("white");
   const [selectedSquare, setSelectedSquare] = useState(null);
@@ -87,17 +104,19 @@ function App() {
   const [isAiThinking, setIsAiThinking] = useState(false);
   const [lastMove, setLastMove] = useState(null);
   const [hintMove, setHintMove] = useState(null);
+  const [hintRanking, setHintRanking] = useState([]);
   const [isHintLoading, setIsHintLoading] = useState(false);
   const [moveHistory, setMoveHistory] = useState([]);
   const [turnSnapshots, setTurnSnapshots] = useState([]);
   const [pendingPromotion, setPendingPromotion] = useState(null);
-  const [message, setMessage] = useState("Losuje pozycje...");
+  const [message, setMessage] = useState("Laduje pozycje treningowe...");
   const aiRequestId = useRef(0);
   const hintRequestId = useRef(0);
 
   const playerTurn = playerColor === "white" ? "w" : "b";
   const isPlayerTurn = game.turn() === playerTurn;
   const gameOver = game.isGameOver();
+  const selectedPosition = positions.find((position) => position.id === selectedPositionId);
   const formattedMoveHistory = useMemo(() => formatMoveHistory(moveHistory), [moveHistory]);
 
   useEffect(() => {
@@ -109,31 +128,24 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  async function loadRandomPosition() {
-    aiRequestId.current += 1;
-    hintRequestId.current += 1;
+  useEffect(() => {
+    loadPositions();
+  }, []);
+
+  async function loadPositions() {
     setIsLoading(true);
-    setIsAiThinking(false);
-    setIsHintLoading(false);
-    setSelectedSquare(null);
-    setLastMove(null);
-    setHintMove(null);
-    setMoveHistory([]);
-    setTurnSnapshots([]);
-    setPendingPromotion(null);
-    setMessage("Losuje pozycje...");
+    setMessage("Laduje pozycje treningowe...");
 
     try {
-      const response = await fetch(`${API_URL}/random_position`);
+      const response = await fetch(`${API_URL}/positions`);
       if (!response.ok) throw new Error("Nie udalo sie pobrac pozycji");
 
       const data = await response.json();
-      const newGame = new Chess(data.fen);
-      const nextPlayerColor = data.playerColor || (newGame.turn() === "w" ? "white" : "black");
+      setPositions(data);
 
-      setGame(newGame);
-      setPlayerColor(nextPlayerColor);
-      setMessage(`Grasz ${nextPlayerColor === "white" ? "bialymi" : "czarnymi"}. Twoj ruch.`);
+      if (data.length === 0) {
+        setMessage("Backend nie zwrocil zadnych pozycji treningowych.");
+      }
     } catch (error) {
       console.error(error);
       setMessage("Backend nie odpowiada. Uruchom FastAPI na porcie 8000.");
@@ -142,10 +154,41 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    const timerId = window.setTimeout(loadRandomPosition, 0);
-    return () => window.clearTimeout(timerId);
-  }, []);
+  function startPosition(position) {
+    aiRequestId.current += 1;
+    hintRequestId.current += 1;
+
+    const nextGame = new Chess(position.fen);
+    const nextPlayerColor = position.playerColor || (nextGame.turn() === "w" ? "white" : "black");
+
+    setView("game");
+    setSelectedPositionId(position.id);
+    setGame(nextGame);
+    setPlayerColor(nextPlayerColor);
+    setSelectedSquare(null);
+    setLastMove(null);
+    setHintMove(null);
+    setHintRanking([]);
+    setMoveHistory([]);
+    setTurnSnapshots([]);
+    setPendingPromotion(null);
+    setIsAiThinking(false);
+    setIsHintLoading(false);
+    setMessage(`Wybrano: ${position.name}. Grasz ${nextPlayerColor === "white" ? "bialymi" : "czarnymi"}.`);
+  }
+
+  function backToPicker() {
+    aiRequestId.current += 1;
+    hintRequestId.current += 1;
+    setView("picker");
+    setSelectedSquare(null);
+    setPendingPromotion(null);
+    setIsAiThinking(false);
+    setIsHintLoading(false);
+    setHintMove(null);
+    setHintRanking([]);
+    setMessage("Wybierz pozycje treningowa.");
+  }
 
   function buildStatus(currentGame = game) {
     if (currentGame.isCheckmate()) return "Mat. Partia zakonczona.";
@@ -161,6 +204,7 @@ function App() {
     hintRequestId.current += 1;
     setIsAiThinking(true);
     setHintMove(null);
+    setHintRanking([]);
     setMessage("Agent RL mysli...");
 
     try {
@@ -212,11 +256,7 @@ function App() {
     hintRequestId.current += 1;
     const gameCopy = new Chess(game.fen());
     const moveNumber = getFenMoveNumber(game.fen());
-    const move = gameCopy.move({
-      from: sourceSquare,
-      to: targetSquare,
-      promotion,
-    });
+    const move = gameCopy.move({ from: sourceSquare, to: targetSquare, promotion });
 
     if (move === null) return false;
 
@@ -225,16 +265,13 @@ function App() {
 
     setTurnSnapshots((snapshots) => [
       ...snapshots,
-      {
-        fen: game.fen(),
-        lastMove,
-        moveHistory: historyBeforeMove,
-      },
+      { fen: game.fen(), lastMove, moveHistory: historyBeforeMove },
     ]);
     setGame(gameCopy);
     setSelectedSquare(null);
     setPendingPromotion(null);
     setHintMove(null);
+    setHintRanking([]);
     setLastMove({ from: sourceSquare, to: targetSquare });
     setMoveHistory(nextMoveHistory);
 
@@ -268,41 +305,39 @@ function App() {
     hintRequestId.current = requestId;
     setIsHintLoading(true);
     setHintMove(null);
-    setMessage("Szukam podpowiedzi agenta RL...");
+    setHintRanking([]);
+    setMessage("Licze ranking ruchow agenta RL...");
 
     try {
-      const response = await fetch(`${API_URL}/ai_move`, {
+      const response = await fetch(`${API_URL}/move_ranking`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fen }),
+        body: JSON.stringify({ fen, limit: 8 }),
       });
 
-      if (!response.ok) throw new Error("Agent nie zwrocil podpowiedzi");
+      if (!response.ok) throw new Error("Agent nie zwrocil rankingu");
 
       const data = await response.json();
       if (hintRequestId.current !== requestId || game.fen() !== fen) return;
 
-      if (!data.move) {
-        setMessage("Agent nie znalazl ruchu w tej pozycji.");
+      const moves = data.moves || [];
+      setHintRanking(moves);
+
+      if (moves.length === 0) {
+        setMessage("Agent nie znalazl legalnych ruchow w tej pozycji.");
         return;
       }
 
-      const hintGame = new Chess(fen);
-      const move = hintGame.move(uciToMove(data.move));
-      setHintMove({
-        from: data.move.slice(0, 2),
-        to: data.move.slice(2, 4),
-      });
-      setMessage(`Podpowiedz agenta: ${move?.san || data.move}.`);
+      const bestMove = moves[0];
+      setHintMove({ from: bestMove.move.slice(0, 2), to: bestMove.move.slice(2, 4) });
+      setMessage(`Najlepsza podpowiedz agenta: ${bestMove.san}.`);
     } catch (error) {
       console.error(error);
       if (hintRequestId.current === requestId) {
-        setMessage("Nie udalo sie pobrac podpowiedzi agenta RL.");
+        setMessage("Nie udalo sie pobrac rankingu ruchow agenta RL.");
       }
     } finally {
-      if (hintRequestId.current === requestId) {
-        setIsHintLoading(false);
-      }
+      if (hintRequestId.current === requestId) setIsHintLoading(false);
     }
   }
 
@@ -327,10 +362,16 @@ function App() {
     setSelectedSquare(null);
     setPendingPromotion(null);
     setHintMove(null);
+    setHintRanking([]);
     setLastMove(snapshot.lastMove);
     setMoveHistory(snapshot.moveHistory);
     setTurnSnapshots((snapshots) => snapshots.slice(0, -1));
     setMessage(`Cofnieto ruch. ${buildStatus(restoredGame)}`);
+  }
+
+  function restartCurrentPosition() {
+    if (!selectedPosition) return;
+    startPosition(selectedPosition);
   }
 
   function onPieceDrop({ sourceSquare, targetSquare }) {
@@ -343,9 +384,7 @@ function App() {
     setHintMove(null);
     const piece = game.get(square);
     if (!selectedSquare) {
-      if (piece && piece.color === playerTurn) {
-        setSelectedSquare(square);
-      }
+      if (piece && piece.color === playerTurn) setSelectedSquare(square);
       return;
     }
 
@@ -359,9 +398,7 @@ function App() {
       return;
     }
 
-    if (!tryPlayerMove(selectedSquare, square)) {
-      setSelectedSquare(null);
-    }
+    if (!tryPlayerMove(selectedSquare, square)) setSelectedSquare(null);
   }
 
   const squareStyles = useMemo(() => {
@@ -401,66 +438,136 @@ function App() {
     animationDurationInMs: animationSpeed,
     showAnimations: true,
     squareStyles,
-    arrows: hintMove ? [{ startSquare: hintMove.from, endSquare: hintMove.to, color: "#14b47a" }] : [],
+    arrows: hintMove ? [{ startSquare: hintMove.from, endSquare: hintMove.to, color: "#0f9f6e" }] : [],
     arrowOptions: {
-      color: "#14b47a",
-      secondaryColor: "#07856f",
+      color: "#0f9f6e",
+      secondaryColor: "#08785a",
       tertiaryColor: "#e91658",
       arrowLengthReducerDenominator: 7,
-      sameTargetArrowLengthReducerDenominator: 4,
       arrowWidthDenominator: 5.5,
-      activeArrowWidthMultiplier: 0.9,
-      opacity: 0.78,
-      activeOpacity: 0.55,
+      opacity: 0.82,
       arrowStartOffset: 0.08,
     },
     allowDrawingArrows: false,
     clearArrowsOnClick: false,
     clearArrowsOnPositionChange: false,
-    darkSquareStyle: { backgroundColor: "#cf8c43" },
-    lightSquareStyle: { backgroundColor: "#f2c58f" },
+    darkSquareStyle: { backgroundColor: "#b9825d" },
+    lightSquareStyle: { backgroundColor: "#efd9ad" },
     boardStyle: {
       width: `${boardWidth}px`,
       maxWidth: "100%",
-      borderRadius: "4px",
+      borderRadius: "6px",
+      boxShadow: "0 18px 38px rgba(21, 25, 32, 0.18)",
     },
   };
 
   return (
-    <main className="app-shell">
-      <h1
-        className="app-title"
-          style={{fontWeight: "bold",textAlign: "center",marginBottom: "16px",fontSize: "32px"
-  }}
->
-  KOŃCÓWKI SZACHOWE <br />
-  PIONOWE Z AGENTEM RL
-        </h1>
-      <section className="game-layout">
-        <aside className="side-panel">
-          <button className="new-position-button" onClick={loadRandomPosition} disabled={isLoading}>
-            <span>NOWA POZYCJA</span>
-            <FaPlus aria-hidden="true" />
+    <main className={`app-shell ${view === "picker" ? "picker-view" : "game-view"}`}>
+      <header className="top-bar">
+        {view === "game" ? (
+          <button className="back-button" type="button" onClick={backToPicker}>
+            <FaArrowLeft aria-hidden="true" />
+            <span>WSTECZ</span>
           </button>
-
-          <div className="controlsA">
-            <label htmlFor="animation-speed">Tryb prędkości animacji</label>
-            <select
-              id="animation-speed"
-              value={animationSpeed}
-              onChange={(event) => setAnimationSpeed(Number(event.target.value))}
-            >
-              {animationOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
+        ) : null}
+        <div>
+          <p className="eyebrow">Trener koncowek pionowych</p>
+          <h1>Koncowki szachowe z agentem RL</h1>
+        </div>
+        {view === "game" ? (
+          <div className="top-controls">
+          <label htmlFor="animation-speed">Animacja</label>
+          <select
+            id="animation-speed"
+            value={animationSpeed}
+            onChange={(event) => setAnimationSpeed(Number(event.target.value))}
+          >
+            {animationOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
           </div>
+        ) : null}
+      </header>
 
+      {view === "picker" ? (
+        <section className="picker-intro">
+          <h2>Wybierz koncowke do treningu</h2>
+          <p>Kliknij jedna z pieciu pozycji. Po wyborze otworzy sie szachownica do gry z agentem RL.</p>
+        </section>
+      ) : null}
+
+      {view === "picker" ? (
+        <section className="position-picker" aria-label="Wybierz pozycje treningowa">
+        {positions.map((position, index) => (
+          <button
+            key={position.id}
+            className={`position-card ${position.id === selectedPositionId ? "active" : ""}`}
+            type="button"
+            onClick={() => startPosition(position)}
+          >
+            <span className="position-number">{index + 1}</span>
+            <Chessboard
+              options={{
+                position: position.fen.split(" ")[0],
+                boardOrientation: position.playerColor || "white",
+                allowDragging: false,
+                darkSquareStyle: { backgroundColor: "#b9825d" },
+                lightSquareStyle: { backgroundColor: "#efd9ad" },
+                boardStyle: { width: "100%", borderRadius: "4px" },
+              }}
+            />
+            <strong>{position.name}</strong>
+          </button>
+        ))}
+        </section>
+      ) : null}
+
+      {view === "game" ? (
+        <section className="game-layout">
+        <aside className="side-panel">
           <div className="status-box">
             <span>{isAiThinking ? "Agent RL" : isPlayerTurn ? "Gracz" : "Pozycja"}</span>
             <p>{message}</p>
+          </div>
+
+          <div className="action-grid">
+            <button className="tool-button" onClick={restartCurrentPosition} disabled={!selectedPosition || isLoading}>
+              <FaRedo aria-hidden="true" />
+              <span>RESET</span>
+            </button>
+            <button className="tool-button" onClick={undoLastMove} disabled={isLoading || isAiThinking || turnSnapshots.length === 0}>
+              <FaUndo aria-hidden="true" />
+              <span>COFNIJ</span>
+            </button>
+            <button
+              className="tool-button primary"
+              onClick={showHint}
+              disabled={isLoading || isAiThinking || isHintLoading || gameOver || Boolean(pendingPromotion)}
+            >
+              <FaLightbulb aria-hidden="true" />
+              <span>{isHintLoading ? "LICZE" : "PODPOWIEDZ"}</span>
+            </button>
+          </div>
+
+          <div className="ranking-card">
+            <h2>Ranking ruchow</h2>
+            {hintRanking.length > 0 ? (
+              <ol className="ranking-list">
+                {hintRanking.map((move) => (
+                  <li key={move.move} className={move.rank === 1 ? "best" : ""}>
+                    <span className="rank">{move.rank}</span>
+                    <span className="move-name">{move.san}</span>
+                    <span className="move-uci">{move.move}</span>
+                    <span className="score">{rankingLabel(move)}</span>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p className="empty-state">Kliknij podpowiedz, zeby zobaczyc najlepsze ruchy agenta w aktualnej pozycji.</p>
+            )}
           </div>
         </aside>
 
@@ -470,7 +577,7 @@ function App() {
 
         <aside className="history-panel" aria-label="Historia ruchow">
           <div className="move-history-card">
-            <h2>HISTORIA RUCHÓW</h2>
+            <h2>Historia ruchow</h2>
             {formattedMoveHistory.length > 0 ? (
               <ol className="move-history-list">
                 {formattedMoveHistory.map((row) => (
@@ -482,31 +589,12 @@ function App() {
                 ))}
               </ol>
             ) : (
-              <p className="empty-history">Brak ruchow</p>
+              <p className="empty-state">Brak ruchow</p>
             )}
           </div>
-
-          <div className="history-actions">
-            <button
-              className="history-button undo-button"
-              onClick={undoLastMove}
-              disabled={isLoading || isAiThinking || turnSnapshots.length === 0}
-            >
-              <span>COFNIJ RUCH</span>
-              <FaUndo aria-hidden="true" />
-            </button>
-
-            <button
-              className="history-button hint-button"
-              onClick={showHint}
-              disabled={isLoading || isAiThinking || isHintLoading || gameOver || Boolean(pendingPromotion)}
-            >
-              <span>{isHintLoading ? "SZUKAM..." : "PODPOWIEDZ"}</span>
-              <FaMagic aria-hidden="true" />
-            </button>
-          </div>
         </aside>
-      </section>
+        </section>
+      ) : null}
 
       {pendingPromotion ? (
         <div className="promotion-overlay" role="dialog" aria-modal="true" aria-label="Wybierz promocje">

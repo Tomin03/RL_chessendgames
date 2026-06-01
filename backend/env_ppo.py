@@ -126,7 +126,12 @@ class ChessEnv(gym.Env):
             positions_path = Path(__file__).resolve().parent / positions_path
 
         with positions_path.open("r", encoding="utf-8") as f:
-            self.positions = json.load(f)
+            raw_positions = json.load(f)
+
+        self.positions = [
+            position["fen"] if isinstance(position, dict) else position
+            for position in raw_positions
+        ]
 
         self.action_space = spaces.Discrete(ACTION_SPACE_SIZE)
         self.observation_space = spaces.Box(
