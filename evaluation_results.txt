@@ -22,3 +22,11 @@ Porazki: 0
 Remisy: 3
 Winrate: 0.00
 ------------------------------
+
+Wyniki ewaluacji (backend\ppo_chess_model):
+Liczba gier: 10
+Wygrane: 0
+Porazki: 0
+Remisy: 10
+Winrate: 0.00
+------------------------------

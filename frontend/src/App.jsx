@@ -128,10 +128,6 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    loadPositions();
-  }, []);
-
   async function loadPositions() {
     setIsLoading(true);
     setMessage("Laduje pozycje treningowe...");
@@ -153,6 +149,11 @@ function App() {
       setIsLoading(false);
     }
   }
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    loadPositions();
+  }, []);
 
   function startPosition(position) {
     aiRequestId.current += 1;
@@ -339,6 +340,11 @@ function App() {
     } finally {
       if (hintRequestId.current === requestId) setIsHintLoading(false);
     }
+  }
+
+  function selectRankedMove(move) {
+    setHintMove({ from: move.move.slice(0, 2), to: move.move.slice(2, 4) });
+    setMessage(`Podglad ruchu z rankingu: ${move.san}.`);
   }
 
   function choosePromotion(promotion) {
@@ -556,11 +562,21 @@ function App() {
             {hintRanking.length > 0 ? (
               <ol className="ranking-list">
                 {hintRanking.map((move) => (
-                  <li key={move.move} className={move.rank === 1 ? "best" : ""}>
-                    <span className="rank">{move.rank}</span>
-                    <span className="move-name">{move.san}</span>
-                    <span className="move-uci">{move.move}</span>
-                    <span className="score">{rankingLabel(move)}</span>
+                  <li
+                    key={move.move}
+                    className={[
+                      move.rank === 1 ? "best" : "",
+                      hintMove?.from === move.move.slice(0, 2) && hintMove?.to === move.move.slice(2, 4) ? "active" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ")}
+                  >
+                    <button type="button" onClick={() => selectRankedMove(move)}>
+                      <span className="rank">{move.rank}</span>
+                      <span className="move-name">{move.san}</span>
+                      <span className="move-uci">{move.move}</span>
+                      <span className="score">{rankingLabel(move)}</span>
+                    </button>
                   </li>
                 ))}
               </ol>

@@ -295,6 +295,10 @@ h1 {
 }
 
 .ranking-list li {
+  border-radius: 8px;
+}
+
+.ranking-list button {
   display: grid;
   grid-template-columns: 28px 1fr auto;
   grid-template-areas:
@@ -302,16 +306,28 @@ h1 {
     "rank uci score";
   align-items: center;
   column-gap: 10px;
+  width: 100%;
   min-height: 52px;
   padding: 8px 10px;
   border: 1px solid #eadfce;
   border-radius: 8px;
   background: white;
+  color: #1d2630;
+  text-align: left;
 }
 
-.ranking-list li.best {
+.ranking-list button:hover {
+  border-color: #2f6f73;
+}
+
+.ranking-list li.best button {
   border-color: #0f766e;
   background: #eef8f5;
+}
+
+.ranking-list li.active button {
+  border-color: #0f9f6e;
+  box-shadow: 0 0 0 3px rgba(15, 159, 110, 0.18);
 }
 
 .rank {
