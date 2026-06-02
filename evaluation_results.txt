@@ -14,3 +14,11 @@ Porażki: 0
 Remisy: 49
 Winrate: 0.02
 ------------------------------
+
+Wyniki ewaluacji (backend\test_training_model):
+Liczba gier: 3
+Wygrane: 0
+Porazki: 0
+Remisy: 3
+Winrate: 0.00
+------------------------------

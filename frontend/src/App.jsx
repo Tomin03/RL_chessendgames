@@ -495,7 +495,6 @@ function App() {
       {view === "picker" ? (
         <section className="picker-intro">
           <h2>Wybierz koncowke do treningu</h2>
-          <p>Kliknij jedna z pieciu pozycji. Po wyborze otworzy sie szachownica do gry z agentem RL.</p>
         </section>
       ) : null}
 

@@ -2,12 +2,15 @@ import argparse
 from pathlib import Path
 
 import torch
+from torch.distributions import Distribution
 from sb3_contrib import MaskablePPO
 from sb3_contrib.common.maskable.policies import MaskableActorCriticPolicy
 from stable_baselines3.common.vec_env import DummyVecEnv
 
 from backend.env_ppo import ChessEnv
 
+
+Distribution.set_default_validate_args(False)
 
 DEFAULT_MODEL_PATH = Path("backend") / "ppo_chess_model"
 

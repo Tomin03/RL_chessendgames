@@ -7,6 +7,7 @@ import numpy as np
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from sb3_contrib import MaskablePPO
+from torch.distributions import Distribution
 
 from backend.env_ppo import (
     ACTION_SPACE_SIZE,
@@ -19,6 +20,8 @@ BASE_DIR = Path(__file__).resolve().parent
 
 MODEL_PATH = BASE_DIR / "ppo_chess_model.zip"
 POSITIONS_PATH = BASE_DIR / "positions.json"
+
+Distribution.set_default_validate_args(False)
 
 model = MaskablePPO.load(str(MODEL_PATH))
 
