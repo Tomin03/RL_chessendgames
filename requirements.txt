@@ -25,3 +25,4 @@ pillow>=10.0.0,<12.0.0
 # Stockfish support
 # Stockfish is an external engine binary, not a Python package.
 # Put it in backend/stockfish/stockfish.exe or set STOCKFISH_PATH.
+optuna >=3.0.0,<5.0.0
