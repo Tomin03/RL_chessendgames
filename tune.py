@@ -5,12 +5,15 @@ import numpy as np
 import optuna
 import torch
 
+from torch.distributions import Distribution
 from sb3_contrib import MaskablePPO
 from sb3_contrib.common.maskable.policies import MaskableActorCriticPolicy
 from stable_baselines3.common.vec_env import DummyVecEnv
 
 from backend.env_ppo import ChessEnv
 
+
+Distribution.set_default_validate_args(False)
 
 DEFAULT_STUDY_NAME = "ppo_chess_tuning"
 DEFAULT_STORAGE = "sqlite:///optuna_chess_tuning.db"
@@ -87,7 +90,7 @@ def build_model(params, verbose=0):
 
 def objective(trial, train_timesteps, eval_games):
     params = {
-        "learning_rate": trial.suggest_float("learning_rate", 1e-5, 1e-3, log=True),
+        "learning_rate": trial.suggest_float("learning_rate", 1e-5, 5e-4, log=True),
         "gamma": trial.suggest_float("gamma", 0.95, 0.999),
         "gae_lambda": trial.suggest_float("gae_lambda", 0.85, 0.99),
         "ent_coef": trial.suggest_float("ent_coef", 0.001, 0.05, log=True),
@@ -143,6 +146,7 @@ if __name__ == "__main__":
     study.optimize(
         lambda trial: objective(trial, args.timesteps, args.eval_games),
         n_trials=args.trials,
+        catch=(ValueError,),
     )
 
     print("Najlepszy wynik:", study.best_value)
