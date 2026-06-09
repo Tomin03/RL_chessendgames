@@ -11,6 +11,7 @@ from sb3_contrib.common.maskable.policies import MaskableActorCriticPolicy
 from stable_baselines3.common.vec_env import DummyVecEnv
 
 from backend.env_ppo import ChessEnv
+from backend.gnn_features import ChessGraphFeaturesExtractor
 
 
 Distribution.set_default_validate_args(False)
@@ -78,6 +79,18 @@ def build_model(params, verbose=0):
         policy=MaskableActorCriticPolicy,
         env=env,
         verbose=verbose,
+        policy_kwargs={
+            "features_extractor_class": ChessGraphFeaturesExtractor,
+            "features_extractor_kwargs": {
+                "features_dim": 256,
+                "hidden_dim": 128,
+                "num_layers": 3,
+            },
+            "net_arch": {
+                "pi": [128],
+                "vf": [128],
+            },
+        },
         learning_rate=params["learning_rate"],
         n_steps=params["n_steps"],
         batch_size=params["batch_size"],

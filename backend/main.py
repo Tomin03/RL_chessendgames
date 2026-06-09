@@ -18,7 +18,7 @@ from backend.env_ppo import (
 
 BASE_DIR = Path(__file__).resolve().parent
 
-MODEL_PATH = BASE_DIR / "ppo_chess_model.zip"
+MODEL_PATH = BASE_DIR / "ppo_chess_model_tuned.zip"
 POSITIONS_PATH = BASE_DIR / "positions.json"
 
 Distribution.set_default_validate_args(False)
