@@ -92,7 +92,7 @@ def evaluate_model_vs_random(model, n_games=50):
         "wins": wins,
         "losses": losses,
         "draws": draws,
-        "winrate": wins / wins + losses if n_games > 0 else 0,
+        "winrate": wins / n_games if n_games > 0 else 0,
         "avg_reward": total_reward / n_games if n_games > 0 else 0,
     }
 
