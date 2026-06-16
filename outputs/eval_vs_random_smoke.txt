@@ -1,0 +1,1403 @@
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 1
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 3.00
+Sredni reward: 1.51
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 5.00
+Sredni reward: 1.47
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 0
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 4.50
+Sredni reward: 0.48
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -1.00
+Sredni reward: -0.98
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 5
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 1.50
+Sredni reward: 0.34
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -4.00
+Sredni reward: -0.27
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -4.00
+Sredni reward: -1.31
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 3.00
+Sredni reward: 0.98
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 2.50
+Sredni reward: 0.92
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 0
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 0
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 0.50
+Sredni reward: 1.61
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 1
+Remisy: 1
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 1
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -7.50
+Sredni reward: -6.96
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 1
+Ruchy promocyjne randoma: 3
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -1.50
+Sredni reward: -1.52
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -2.00
+Sredni reward: -0.53
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 1
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: 2.50
+Sredni reward: -0.20
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -1.50
+Sredni reward: -0.15
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 5
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -7.00
+Sredni reward: -3.76
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 0
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 0
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 0
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 6.00
+Sredni reward: 2.55
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 5
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 3.00
+Sredni reward: -1.22
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 4
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 1.50
+Sredni reward: 0.35
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 1
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 4.00
+Sredni reward: 1.25
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -2.00
+Sredni reward: -0.67
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 6
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -2.50
+Sredni reward: 0.83
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 1
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 3.50
+Sredni reward: 2.36
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -4.50
+Sredni reward: -0.81
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -0.50
+Sredni reward: -0.27
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -1.50
+Sredni reward: -0.74
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -7.00
+Sredni reward: -1.49
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 5
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -1.00
+Sredni reward: 1.08
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 1
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -8.00
+Sredni reward: -1.95
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 1
+Remisy: 1
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 1
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 4.00
+Sredni reward: -3.40
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 1.50
+Sredni reward: -1.21
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 6
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -2.50
+Sredni reward: 0.45
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -1.00
+Sredni reward: 0.12
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 5.50
+Sredni reward: 0.40
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 5
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 0.50
+Sredni reward: 0.29
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 0
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 0
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -1.00
+Sredni reward: 1.20
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -0.50
+Sredni reward: 0.49
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 1
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -3.50
+Sredni reward: -1.65
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: 3.50
+Sredni reward: 0.94
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -5.50
+Sredni reward: -1.35
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 4
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -3.00
+Sredni reward: -1.31
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 2
+Material advantage rate: 1.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 6.50
+Sredni reward: 1.04
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 6
+Ruchy promocyjne randoma: 4
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -9.00
+Sredni reward: -1.60
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 1
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 1
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -2.00
+Sredni reward: -0.08
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -3.00
+Sredni reward: 1.16
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -0.50
+Sredni reward: -0.22
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 3.50
+Sredni reward: 1.16
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 1
+Winrate: 0.00
+Partie z promocja agenta: 1
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 4
+Promotion rate: 0.50
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 1
+Endgame success rate: 0.50
+Srednia przewaga materialu: -2.00
+Sredni reward: -0.96
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 5
+Ruchy promocyjne randoma: 4
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -3.50
+Sredni reward: -0.99
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 2
+Material advantage rate: 1.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 8.00
+Sredni reward: 1.30
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -3.50
+Sredni reward: -1.21
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 4
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -5.50
+Sredni reward: -2.29
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -6.00
+Sredni reward: -0.46
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 2
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -2.50
+Sredni reward: -0.83
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 1
+Material advantage rate: 0.50
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 2.50
+Sredni reward: 1.04
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 4
+Ruchy promocyjne randoma: 4
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 2
+Material advantage rate: 1.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 6.50
+Sredni reward: 0.68
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: 0.00
+Sredni reward: -0.05
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -4.50
+Sredni reward: -0.40
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 3
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -1.50
+Sredni reward: -0.26
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 5
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -1.50
+Sredni reward: -1.39
+------------------------------
+
+Wyniki ewaluacji vs random (outputs\resumed_training\checkpoints\ppo_chess_gnn_checkpoint_resumed_1600000_steps.zip):
+Liczba gier: 2
+Kolor agenta: side-to-move
+Limit polruchow: 100
+Prog przewagi materialu: 3.0
+Wygrane: 0
+Porazki: 0
+Remisy: 2
+Partie uciete limitem: 2
+Winrate: 0.00
+Partie z promocja agenta: 2
+Partie z promocja randoma: 2
+Ruchy promocyjne agenta: 3
+Ruchy promocyjne randoma: 2
+Promotion rate: 1.00
+Partie z przewaga materialu agenta: 0
+Material advantage rate: 0.00
+Sukces koncowkowy: 2
+Endgame success rate: 1.00
+Srednia przewaga materialu: -3.00
+Sredni reward: -0.72
+------------------------------
